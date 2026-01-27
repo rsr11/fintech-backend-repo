@@ -16,7 +16,7 @@ export const UserRegistration = async (req,res)=>{
         const token = await user.generateJWT();
         
         res.status(200).cookie("token", token, {
-            httpOnly: true, secure:true, sameSite:'strict', maxAge: 24 * 60 * 60 * 1000}).json({name:user.name, email:user.email, MonthlyIncome:user.MonthlyIncome,Profession:user.Profession,token});
+            httpOnly: true, secure:true, sameSite:'none', maxAge: 24 * 60 * 60 * 1000}).json({name:user.name, email:user.email, MonthlyIncome:user.MonthlyIncome,Profession:user.Profession,token});
 
     } catch (error) {
         console.log(error);
@@ -78,7 +78,7 @@ export const UserLogin = async (req,res)=>{
         const token = await userExist.generateJWT();
 
         res.status(200).cookie("token", token, {
-            httpOnly: true, secure:false, sameSite:'lax', maxAge: 24 * 60 * 60 * 1000}).json({name:userExist.name, email:userExist.email, token});
+            httpOnly: true, secure:true, sameSite:'none', maxAge: 24 * 60 * 60 * 1000}).json({name:userExist.name, email:userExist.email, token});
 
     } 
     catch (error) {
