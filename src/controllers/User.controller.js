@@ -95,7 +95,7 @@ export const UserLogin = async (req,res)=>{
         
          const user = await User.findById(userId._id);
          if(user){
-            res.clearCookie("token", {httpOnly: true,secure: true,sameSite: "strict"});
+            res.clearCookie("token", {httpOnly: true,secure: true,sameSite: "none"});
             res.status(200).json({ msg: "Logged out" });
          }else{
             res.status(404).json({msg:"Server error"});
