@@ -13,7 +13,7 @@ Dotenv.config();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://your-netlify-site.netlify.app"
+  "https://finpocketdashboard.netlify.app"
 ];
 
 const app = express();
