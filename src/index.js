@@ -47,9 +47,9 @@ app.get("/",(req,res)=>{
 
 
 
-const PORT= 4040;
+const PORT= process.env.PORT || 4040;
 
-DbConnection().then(app.listen(process.env.PORT || PORT,()=>{
+DbConnection().then(app.listen(PORT,()=>{
     console.log(`Server Working on port ${process.env.PORT}`); 
 })).catch((error)=>{
    console.error( "error while listenig "+ error);
