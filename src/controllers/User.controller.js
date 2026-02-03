@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import UserModel from "../models/User.model.js";
 import User from "../models/User.model.js";
 import cookieParser from "cookie-parser";
@@ -45,7 +46,7 @@ export const GetUserData = async (req,res)=>{
   
     try {
         const userId = req.user;
-        const UserData = await UserModel.findById(userId);
+        const UserData = await UserModel.findById(new mongoose.Types.ObjectId(userId));
         
         if(!UserData) return res.status(500).json({msg:"no data found"});
 
