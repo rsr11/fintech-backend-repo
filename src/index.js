@@ -33,7 +33,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.use("/finPocket/api/auth/",AuthRoute);
+app.use("/finPocket/api/auth",AuthRoute);
 app.use("/finPocket/api/transaction",TransactionRoute);
 app.use("/finPocket/api/analytics",AnalyticsRoute);
 // app.use("/finPocket/api/transaction")
